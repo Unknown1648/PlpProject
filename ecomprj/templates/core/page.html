@@ -1,44 +1,159 @@
-{% extends 'partials/base3.html' %}
+{% extends 'partials/base2.html' %}
 
 {%load static%}
 {%block content%}
 
 
-<div class="container2">
-    <h1>News & Articles</h1>
-    <p>Enhance your space with popular styles, colors, & decor ideas</p>
-    <div class="blog-grid">
-        <div class="blog-post">
-            <img src="https://via.placeholder.com/600x400" alt="Interior Design">
-            <h2>Interior Design</h2>
-            <p>July 24, 2024</p>
-            <a href="#" class="btn btn-arrow">Read More</a>
-        </div>
-        <div class="blog-post">
-            <img src="https://via.placeholder.com/600x400" alt="Home Buying">
-            <h2>Home Buying</h2>
-            <p>July 24, 2024</p>
-            <a href="#" class="btn btn-arrow">Read More</a>
-        </div>
-        <div class="blog-post">
-            <img src="https://via.placeholder.com/600x400" alt="Legal Insights">
-            <h2>Legal Insights</h2>
-            <p>July 24, 2024</p>
-            <a href="#" class="btn btn-arrow">Read More</a>
-        </div>
-        <div class="blog-post">
-            <img src="https://via.placeholder.com/600x400" alt="Smart Homes">
-            <h2>Smart Homes</h2>
-            <p>July 24, 2024</p>
-            <a href="#" class="btn btn-arrow">Read More</a>
-        </div>
-        <!-- Additional blog posts go here, if needed -->
-    </div>
-    <div class="pagination">
-        <a href="{% url 'core:page2' %}">Next</a>
-    </div>
-</div>
+            <!-- Blank Start -->
+            <div class="container-fluid pt-4 px-4">
+                
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f4f4f4;
+                }
+            
+                .logo {
+                    font-size: 2em;
+                    font-weight: bold;
+                }
+                .navigation {
+                    margin-top: 10px;
+                }
+                .navigation a {
+                    color: #fff;
+                    text-decoration: none;
+                    margin: 0 15px;
+                    font-size: 1.2em;
+                }
+                .container2 {
+                    max-width: 1200px;
+                    margin: 20px auto;
+                    padding: 20px;
+                    background-color: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+                .container2 h1 {
+                    margin-bottom: 20px;
+                }
+                .container2 p {
+                    margin-bottom: 20px;
+                    color: #555;
+                }
+                .blog-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
+                .blog-post {
+                    background-color: #fff;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    padding: 15px;
+                }
+                .blog-post img {
+                    width: 100%;
+                    height: auto;
+                    border-bottom: 1px solid #ddd;
+                }
+                .blog-post h2 {
+                    margin: 15px 0 10px;
+                }
+                .blog-post p {
+                    color: #555;
+                }
+                .btn {
+                    background-color: #06c760;
+                    color: #fff;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-size: 0.9em;
+                    display: inline-block;
+                    margin-top: 10px;
+                }
+                .btn:hover {
+                    background-color: #06c760;
+                }
+                .btn-arrow::after {
+                    content: ' →';
+                }
+                .pagination {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                .pagination a {
+                    color: #06c760;
+                    text-decoration: none;
+                    margin: 0 10px;
+                    font-size: 1.2em;
+                }
+            </style>
+        </head>
+        <body>
+            
+
+            
+                <div class="container2">
+                    <h1>News & Articles</h1>
+                    <p>Enhance your space with popular styles, colors, & decor ideas</p>
+                    <div class="blog-grid">
+                        <div class="blog-post">
+                            <img src="https://via.placeholder.com/600x400" alt="Interior Design">
+                            <h2>Interior Design</h2>
+                            <p>July 24, 2024</p>
+                            <a href="#" class="btn btn-arrow">Read More</a>
+                        </div>
+                        <div class="blog-post">
+                            <img src="https://via.placeholder.com/600x400" alt="Home Buying">
+                            <h2>Home Buying</h2>
+                            <p>July 24, 2024</p>
+                            <a href="#" class="btn btn-arrow">Read More</a>
+                        </div>
+                        <div class="blog-post">
+                            <img src="https://via.placeholder.com/600x400" alt="Legal Insights">
+                            <h2>Legal Insights</h2>
+                            <p>July 24, 2024</p>
+                            <a href="#" class="btn btn-arrow">Read More</a>
+                        </div>
+                        <div class="blog-post">
+                            <img src="https://via.placeholder.com/600x400" alt="Smart Homes">
+                            <h2>Smart Homes</h2>
+                            <p>July 24, 2024</p>
+                            <a href="#" class="btn btn-arrow">Read More</a>
+                        </div>
+                        <!-- Additional blog posts go here, if needed -->
+                    </div>
+                    <div class="pagination">
+                        <a href="{% url 'core:page2' %}">Next</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Content End -->
+       
+
+            <!-- Back to Top -->
+            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        </div>
+        <!-- other Template Javascript -->
+        <script src="{% static 'js/main2.js' %}"></script>
+        </body>
+
+        </html>
+    </div>
+    <!-- Blank End -->    
             
 
 {% endblock content %}
+
