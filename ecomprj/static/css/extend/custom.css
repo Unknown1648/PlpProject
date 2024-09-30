@@ -1,0 +1,73 @@
+/*------------------------------------------------------------------
+    File Name: custom.css
+-------------------------------------------------------------------*/
+
+/** ADD YOUR AWESOME CODES HERE **/
+
+.welcome-search-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome-search-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.welcome-search-section p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.search-bar {
+    width: 80%;
+    padding: 10px;
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.featured-homes-section {
+    margin-bottom: 30px;
+}
+
+.featured-homes-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.featured-homes-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.featured-home-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 30%;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.featured-home-img {
+    width: 100%;
+    height: auto;
+}
+
+.home-details {
+    padding: 15px;
+    text-align: center;
+}
+
+.home-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.home-details p {
+    font-size: 1.1em;
+    color: #555;
+}

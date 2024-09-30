@@ -1,0 +1,751 @@
+{% extends 'partials/base.html' %}
+
+{%load static%}
+{%block content%}
+<head>
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style3.css' %}" rel="stylesheet">
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+        <!-- Header Start -->
+        <div class="container-fluid header bg-white p-0">
+            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                <div class="col-md-6 p-5 mt-lg-5">
+                    <h1 class="display-5 animated fadeIn mb-4">Property List</h1> 
+                        <nav aria-label="breadcrumb animated fadeIn">
+                        <ol class="breadcrumb text-uppercase">
+                            <li class="breadcrumb-item"><a href="{% url 'core:index' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-body active" aria-current="page">Property List</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-6 animated fadeIn">
+                    <img class="img-fluid" src="{% static 'img/header.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+        <!-- Search Start -->
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-4"  style="width: 8cm;">
+                                <input type="text" id="keywordInput" class="form-control border-0 py-3" placeholder="Search Keyword">
+                            </div>
+                            <div class="col-md-4"style="width: 7cm;">
+                                <select id="propertyTypeSelect" class="form-select border-0 py-3">
+                                    <option value="">Property Type</option>
+                                    <option value="Bedsitter">Bedsitter</option>
+                                    <option value="Single-Room">Single-Room</option>
+                                    <option value="Double-Room">Double-Room</option>
+                                    <option value="One Bedroom">One Bedroom</option>
+                                    <option value="Two Bedroom">Two Bedroom</option>
+                                    <option value="Three Bedroom">Three Bedroom</option>
+                                    <option value="Shop">Shop</option>
+                                    <option value="Own Compound">Own Compound</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" style="width: 7cm;">
+                                <select id="locationSelect" class="form-select border-0 py-3">
+                                    <option value="">Location</option>
+                                    <option value="Mayor Road">Mayor Road</option>
+                                    <option value="Maasai Lodge">Maasai Lodge</option>
+                                    <option value="Ole-Kasasi A">Ole-Kasasi A</option>
+                                    <option value="Ole-Kasasi B">Ole-Kasasi B</option>
+                                    <option value="Tumaini">Tumaini</option>
+                                    <option value="Kware">Kware</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="searchButton" class="btn btn-dark border-0 w-100 py-3">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Search End -->
+
+
+        <!-- Property List Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-0 gx-5 align-items-end">
+                    <div class="col-lg-6">
+                        <div class="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
+                            <h1 class="mb-3">Property Listing</h1>
+                            <p>Here are some houses you may be interested in.</p>
+                            <p>Click the Pictures/Icons below to see the house details of your choice: </p>
+                        </div>
+                    </div>
+                    <!-- Property Filter Tabs -->
+                    <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                        <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
+                            <li class="nav-item me-2">
+                                <a id="tab-featured" class="btn btn-outline-primary active" href="#">Featured</a>
+                            </li>
+                            <li class="nav-item me-2">
+                                <a id="tab-rented" class="btn btn-outline-primary" href="#">Rented</a>
+                            </li>
+                            <li class="nav-item me-0">
+                                <a id="tab-vacant" class="btn btn-outline-primary" href="#">Vacant</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="propertyList" class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                        <div class="row g-4">
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="property-item rounded overflow-hidden" data-type="Bedsitter" data-location="Tuskys" data-status="Rented" data-price="12000">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href="" ><img class="triggerImage img-fluid" data-popup="popup25" src="{% static 'img/Houses/Bedsitters/unknown/Apartment.jpg' %}" alt="Property Image"></a>
+                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Rented</div>
+                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3" id="Bedsitter">Bedsitter</div>
+
+
+                                            <!-- Main Modal -->
+                                        <div id="popup25" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close2" data-popup="popup25" style="font-size:medium;"><- Back To Search</span>
+                                                <div class="modal-body">
+                                                    <div class="left-column">
+                                                        <div id="grid25" class="image-grid">
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img1.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img1.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img2.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img2.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img3.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img3.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img4.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img4.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img5.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img5.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img6.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img6.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img7.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img7.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img8.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img8.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img9.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img9.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img10.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img10.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img11.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img11.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img12.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img12.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/img13.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/unknown/img13.jpg' %}" alt=""></a>
+
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/unknown/unknown.mp4' %}">
+                                                                <video class="img-fluid" controls style="width: 1300px; height: 200px;">
+                                                                    <source src="{% static 'img/Houses/Bedsitters/unknown/unknown.mp4' %}" type="video/mp4" >
+                                                                    Your browser does not support the video tag.
+                                                                </video>
+                                                            </a>
+                                                        </div>
+                                                        <!-- Lightbox -->
+                                                        <div id="lightbox" class="lightbox">
+                                                            <span class="close">&times;</span>
+                                                            <img class="lightbox-image" src="" alt="">
+                                                            <a class="prev">&#10094;</a>
+                                                            <a class="next">&#10095;</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right-column">
+                                                        <h4 id="apartmentName">Apartment Name</h4>
+                                                        <p>Apartment 20</p>
+                                                        <button class="bookButton" data-popup="popup25">Request to Book</button>
+                                                        <button class="visitButton" data-popup="popup25">Request to Visit</button>
+                                                        <h6>What's special</h6>
+                                                        <p id="description">If you're looking for a modernized bedsitter to suite your taste then search no more. Just near the Mbagathi Road and Women's Hospital and great view of the town, you've trully  won. This fantastic bedsitter home, alluring amenities and a terrific location in Tuskys, this Apartment offers upscale living in an attractive package. Everything you want and more is right here. All you have to do is look.</p>
+                                                        <h6>Location</h6>
+                                                        <p id="location">Located at: Tuskys, Kajiado, Kenya</p>
+                                                        <h6>Monthly Price</h6>
+                                                        <p id="monthlyPrice">Ksh 12,000</p>
+                                                        <h6>Deposit Price</h6>
+                                                        <p id="depositPrice">Ksh 24,000</p>
+                                                        <h6>Total Price</h6>
+                                                        <p id="totalPrice">Ksh 26,500</p>
+                                                        <h6>Policies</h6>
+                                                        <p>Pets - Dogs and Cats(Maximum of 2)</p>
+                                                        <p>Special feature - Built in wardrobe</p>
+                                                        <h6>Amenities</h6>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Parking</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Amazing View Balcony</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>WiFi (Personal)</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>24hr Security Guard</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Clean Water Supply</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>On-Site staff</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Nearby mall/shops/grocery stores</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">Ksh 12000</h5>
+                                        <p class="d-block h5 mb-2">Apartment 20</p>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Tuskys, Kajiado, Kenya</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>60 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i></small>
+                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i></small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="property-item rounded overflow-hidden" data-type="Bedsitter" data-location="Maasai Lodge" data-status="Rented" data-price="10000">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href="" ><img class="triggerImage img-fluid" data-popup="popup23" src="{% static 'img/Houses/Bedsitters/ParkBreeze/Apartment.jpg' %}" alt="Property Image"></a>
+                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Rented</div>
+                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3" id="Bedsitter">Bedsitter</div>
+
+
+                                            <!-- Main Modal -->
+                                        <div id="popup23" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close2" data-popup="popup23" style="font-size:medium;"><- Back To Search</span>
+                                                <div class="modal-body">
+                                                    <div class="left-column">
+                                                        <div id="grid23" class="image-grid">
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/ParkBreeze/img1.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/ParkBreeze/img1.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/ParkBreeze/img2.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/ParkBreeze/img2.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/ParkBreeze/img3.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/ParkBreeze/img3.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/ParkBreeze/img4.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/ParkBreeze/img4.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/ParkBreeze/img5.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/ParkBreeze/img5.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/ParkBreeze/img6.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/ParkBreeze/img6.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/ParkBreeze/img7.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/ParkBreeze/img7.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/ParkBreeze/img8.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/ParkBreeze/img8.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/ParkBreeze/img9.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/ParkBreeze/img9.jpg' %}" alt=""></a>
+
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/ParkBreeze/parkbreeze.mp4' %}">
+                                                                <video class="img-fluid" controls style="width: 1300px; height: 200px;">
+                                                                    <source src="{% static 'img/Houses/Bedsitters/ParkBreeze/parkbreeze.mp4' %}" type="video/mp4" >
+                                                                    Your browser does not support the video tag.
+                                                                </video>
+                                                            </a>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="right-column">
+                                                        <h4 id="apartmentName">Apartment Name</h4>
+                                                        <p>Apartment 18</p>
+                                                        <button class="bookButton" data-popup="popup23">Request to Book</button>
+                                                        <button class="visitButton" data-popup="popup23">Request to Visit</button>
+                                                        <h6>What's special</h6>
+                                                        <p id="description">If you're looking for a bedsitter that's exemplary modernized to suite your taste then search no more. Just near the Mbagathi Road with great view, you've won. With fantastic bedsitter homes, alluring amenities and a terrific location in Tumaini, this Apartment offers upscale living in an attractive package. Everything you want and more is right here. All you have to do is look.</p>
+                                                        <h6>Location</h6>
+                                                        <p id="location">Located at: Maasai Lodge, Kajiado, Kenya</p>
+                                                        <h6>Monthly Price</h6>
+                                                        <p id="monthlyPrice">Ksh 10,000</p>
+                                                        <h6>Deposit Price</h6>
+                                                        <p id="depositPrice">Ksh 20,000</p>
+                                                        <h6>Total Price</h6>
+                                                        <p id="totalPrice">Ksh 22,600</p>
+                                                        <h6>Policies</h6>
+                                                        <p>Pets - Dogs and Cats(Maximum of 2)</p>
+                                                        <p>Special feature - Built in wardrobe</p>
+                                                        <h6>Amenities</h6>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Parking</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Fingerprint Gate Security</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Amazing View Balcony</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>WiFi (Personal)</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>24hr Security</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Clean Water Supply</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>On-Site staff</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Nearby mall/shops/grocery stores</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">Ksh 10000</h5>
+                                        <p class="d-block h5 mb-2">Apartment 18</p>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Maasai Lodge, Kajiado, Kenya</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>60 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i></small>
+                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i></small>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="property-item rounded overflow-hidden" data-type="One Bedroom" data-location="Tumaini"  data-status="Rented" data-price="11000">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href="" ><img class="triggerImage img-fluid" data-popup="popup21" src="{% static 'img/Houses/One-B/HelenaClose/Apartment.jpg' %}" alt="Property Image"></a>                                      
+                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Rented</div>
+                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3" id="One Bedroom">One Bedroom</div>
+
+                                        <!-- Main Modal -->
+                                        <div id="popup21" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close2" data-popup="popup21" style="font-size:medium;"><- Back To Search</span>
+                                                <div class="modal-body">
+                                                    <div class="left-column">
+                                                        <div id="grid21" class="image-grid">
+                                                            <!-- Add your images here -->
+                                                            <a href="#" data-src="{% static 'img/Houses/One-B/HelenaClose/img1.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/One-B/HelenaClose/img1.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/One-B/HelenaClose/img2.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/One-B/HelenaClose/img2.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/One-B/HelenaClose/img3.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/One-B/HelenaClose/img3.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/One-B/HelenaClose/img4.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/One-B/HelenaClose/img4.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/One-B/HelenaClose/img5.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/One-B/HelenaClose/img5.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/One-B/HelenaClose/img6.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/One-B/HelenaClose/img6.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/One-B/HelenaClose/img7.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/One-B/HelenaClose/img7.jpg' %}" alt=""></a>
+
+                                                            <br>
+                                                            <a href="#" data-src="{% static 'img/Houses/One-B/HelenaClose/helena.mp4' %}">
+                                                                <video class="img-fluid" controls style="width: 1300px; height: 200px;">
+                                                                    <source src="{% static 'img/Houses/One-B/HelenaClose/helena.mp4' %}" type="video/mp4" >
+                                                                    Your browser does not support the video tag.
+                                                                </video>
+                                                            </a>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="right-column">
+                                                        <h4 id="apartmentName">Apartment Name</h4>
+                                                        <p>Apartment 16</p>
+                                                        <button class="bookButton" data-popup="popup21">Request to Book</button>
+                                                        <button class="visitButton" data-popup="popup21">Request to Visit</button>
+                                                        <h6>What's special</h6>
+                                                        <p id="description">If you're looking for an apartment that's really cheap price then this exquisite house, has everything you'd want and more just at the right price. All you have to do is Apply and it's yours.</p>
+                                                        <h6>Location</h6>
+                                                        <p id="location">Located around: Tumaini, Kajiado, Kenya</p>
+                                                        <h6>Monthly Price</h6>
+                                                        <p id="monthlyPrice">Ksh 11,000</p>
+                                                        <h6>Deposit Price</h6>
+                                                        <p id="depositPrice">Ksh 24,000</p>
+                                                        <h6>Amenities</h6>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>WiFi(Personal)</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>CCTV</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>24hr Security</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Clean Water Supply</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>On-Site staff</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Tiled floor</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">Ksh 11000</h5>
+                                        <p class="d-block h5 mb-2">Apartment 16</p>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Tumaini, Kajiado, Kenya</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>90 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i></small>
+                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i></small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="property-item rounded overflow-hidden" data-type="" data-location="Tumaini" data-status="Rented" data-price="8000">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href="" ><img class="triggerImage img-fluid" data-popup="popup26" src="{% static 'img/homely.jpeg' %}" alt="Property Image"></a>                                      
+                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Rented</div>
+                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3" id="Bedsitter">Single|Two|Three|Four</div>
+
+
+                                            <!-- Main Modal -->
+                                        <div id="popup26" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close2" data-popup="popup26" style="font-size:medium;"><- Back To Search</span>
+                                                <div class="modal-body">
+                                                    <div class="left-column">
+                                                        <div id="grid26" class="image-grid">
+                                                            <a href="#" data-src="{% static 'img/homely.jpeg' %}"><img class="img-fluid" src="{% static 'img/homely2.jpeg' %}" alt=""></a>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    <div class="right-column">
+                                                        <h4 id="apartmentName">Apartment Name</h4>
+                                                        <p>Apartment 21</p>
+                                                        <button class="bookButton" data-popup="popup26">Request to Book</button>
+                                                        <button class="visitButton" data-popup="popup26">Request to Visit</button>
+                                                        <h6>What's special</h6>
+                                                        <p id="description">Best Student package all in one hostels. Homely StudeAccomodation offers a package thats irrestible to leave. Grap a room NOW!!</p>
+                                                        <h6>Location</h6>
+                                                        <p id="location">Located at: Tumaini, Kajiado, Kenya</p>
+                                                        <h6>Single</h6>
+                                                        <h7>Monthly Price</h7>
+                                                        <p id="monthlyPrice">Ksh 9,500</p>
+                                                        <h7>Deposit Price</h7>
+                                                        <p id="depositPrice">Ksh 4,000</p>
+                                                        <h7>Total Price</h7>
+                                                        <p id="totalPrice">Ksh 13,500</p>
+                                                        <h6>Two</h6>
+                                                        <h7>Monthly Price</h7>
+                                                        <p id="monthlyPrice">Ksh 7,500</p>
+                                                        <h7>Deposit Price</h7>
+                                                        <p id="depositPrice">Ksh 4,000</p>
+                                                        <h7>Total Price</h7>
+                                                        <p id="totalPrice">Ksh 11,500</p>
+                                                        <h6>Three</h6>
+                                                        <h7>Monthly Price</h7>
+                                                        <p id="monthlyPrice">Ksh 6,500</p>
+                                                        <h7>Deposit Price</h7>
+                                                        <p id="depositPrice">Ksh 4,000</p>
+                                                        <h7>Total Price</h7>
+                                                        <p id="totalPrice">Ksh 10,500</p>
+                                                        <h6>Four</h6>
+                                                        <h7>Monthly Price</h7>
+                                                        <p id="monthlyPrice">Ksh 5,000</p>
+                                                        <h7>Deposit Price</h7>
+                                                        <p id="depositPrice">Ksh 4,000</p>
+                                                        <h7>Total Price</h7>
+                                                        <p id="totalPrice">Ksh 9,000</p>
+                                                        <h6>Policies</h6>
+                                                        <p>Kitchen/Gas Use - 1000(Optional)</p>
+                                                        <p>Special feature - Built in wardrobe</p>
+                                                        <h6>Amenities</h6>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Electricity and water inclusive</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Free WiFi</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Bed, mattress, chair, and table space provided.</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Kitchen for self catering</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Very clean environment</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Peaceful learning atmosphere.</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Close to hospitals, chemist, supermarkets, hair salons, barbers and food markets.</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Reliable public transport.</p>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">Ksh 9500</h5><h5 class="text-primary mb-3">Ksh 7500</h5>
+                                        <h5 class="text-primary mb-3">Ksh 6500</h5><h5 class="text-primary mb-3">Ksh 5000</h5>
+                                        <p class="d-block h5 mb-2">Apartment 21</p>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Tumaini, Kajiado, Kenya</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i></small>
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i></small>
+                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i></small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="property-item rounded overflow-hidden" data-type="Bedsitter" data-location="Tumaini" data-status="Rented" data-price="10500">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href="" ><img class="triggerImage img-fluid" data-popup="popup18" src="{% static 'img/Houses/Bedsitters/Mose-Tuma/Apartment.jpg' %}" alt="Property Image"></a>
+                                        <!-- <a class="triggerImage cat-item d-block bg-light text-center rounded p-3" href="" data-popup="popup1" style="height: 250px;">
+                                            <div class="rounded p-4">
+                                                <div class="icon mb-3">
+                                                    <img class="triggerImage img-fluid" data-popup="popup1" src="{% static 'img/icon-house.png' %}" alt="Property Image" alt="Icon" style="height: 70px;">
+                                                </div>
+                                                <h6>Bedsitter</h6>
+                                                <span></span>
+                                            </div>
+                                        </a> -->
+                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Rented</div>
+                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3" id="Bedsitter">Bedsitter</div>
+
+
+                                            <!-- Main Modal -->
+                                        <div id="popup18" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close2" data-popup="popup18" style="font-size:medium;"><- Back To Search</span>
+                                                <div class="modal-body">
+                                                    <div class="left-column">
+                                                        <div id="grid18" class="image-grid">
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img1.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img1.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img2.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img2.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img3.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img3.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img4.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img4.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img5.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img5.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img6.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img6.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img7.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img7.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img8.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Mose-Tuma/img8.jpg' %}" alt=""></a>
+
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    <div class="right-column">
+                                                        <h4 id="apartmentName">Apartment Name</h4>
+                                                        <p>Apartment 13</p>
+                                                        <button class="bookButton" data-popup="popup18">Request to Book</button>
+                                                        <button class="visitButton" data-popup="popup18">Request to Visit</button>
+                                                        <h6>What's special</h6>
+                                                        <p id="description">If you're looking for an apartment that's modernized to suite your taste then search no more. Just near the Mbagathi Road with great view, you've won. With fantastic bedsitter homes, alluring amenities and a terrific location in Tumaini, this Apartment offers upscale living in an attractive package. Everything you want and more is right here. All you have to do is look.</p>
+                                                        <h6>Location</h6>
+                                                        <p id="location">Located at: Tumaini, Kajiado, Kenya</p>
+                                                        <h6>Monthly Price</h6>
+                                                        <p id="monthlyPrice">Ksh 10,500</p>
+                                                        <h6>Deposit Price</h6>
+                                                        <p id="depositPrice">Ksh 21,000</p>
+                                                        <h6>Total Price</h6>
+                                                        <p id="totalPrice">Ksh 22,700</p>
+                                                        <h6>Policies</h6>
+                                                        <p>Pets - Dogs and Cats(Maximum of 2)</p>
+                                                        <p>Special feature - Built in wardrobe</p>
+                                                        <h6>One-time costs</h6>
+                                                        <p>Trash Collection - Ksh 200</p>
+                                                        <h6>Amenities</h6>
+                                                        <!-- <p><i class="fa fa-check text-primary me-3"></i>Parking</p> -->
+                                                        <p><i class="fa fa-check text-primary me-3"></i>WiFi (Personal)</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>24hr Security</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Clean Water Supply</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>On-Site staff</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Nearby mall/shops/grocery stores</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">Ksh 10500</h5>
+                                        <p class="d-block h5 mb-2">Apartment 12</p>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Tumaini, Kajiado, Kenya</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>70 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i></small>
+                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i></small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="property-item rounded overflow-hidden" data-type="Bedsitter" data-location="Tumaini" data-status="Rented" data-price="8000">
+                                    <div class="position-relative overflow-hidden">
+                                        <a class="triggerImage cat-item d-block bg-light text-center rounded p-3" href="" data-popup="popup22" style="height: 250px;">
+                                            <div class="rounded p-4">
+                                                <div class="icon mb-3">
+                                                    <img class="triggerImage img-fluid" data-popup="popup22" src="{% static 'img/icon-house.png' %}" alt="Property Image" alt="Icon" style="height: 70px;">
+                                                </div>
+                                                <h6>Bedsitter</h6>
+                                                <span></span>
+                                            </div>
+                                        </a>
+                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Rented</div>
+                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3" id="Bedsitter">Bedsitter</div>
+
+
+                                            <!-- Main Modal -->
+                                        <div id="popup22" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close2" data-popup="popup22" style="font-size:medium;"><- Back To Search</span>
+                                                <div class="modal-body">
+                                                    <div class="left-column">
+                                                        <div id="grid22" class="image-grid">
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Roymen/img1.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Roymen/img1.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Roymen/img2.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Roymen/img2.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Roymen/img3.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Roymen/img3.jpg' %}" alt=""></a>
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Roymen/img4.jpg' %}"><img class="img-fluid" src="{% static 'img/Houses/Bedsitters/Roymen/img4.jpg' %}" alt=""></a>
+                                                            
+                                                            <a href="#" data-src="{% static 'img/Houses/Bedsitters/Roymen/roymen.mp4' %}">
+                                                                <video class="img-fluid" controls style="width: 1300px; height: 200px;">
+                                                                    <source src="{% static 'img/Houses/Bedsitters/Roymen/roymen.mp4' %}" type="video/mp4" >
+                                                                    Your browser does not support the video tag.
+                                                                </video>
+                                                            </a>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    <div class="right-column">
+                                                        <h4 id="apartmentName">Apartment Name</h4>
+                                                        <p>Apartment 17</p>
+                                                        <button class="bookButton" data-popup="popup22">Request to Book</button>
+                                                        <button class="visitButton" data-popup="popup22">Request to Visit</button>
+                                                        <h6>What's special</h6>
+                                                        <p id="description">If you're that introvert and you're looking for a quiet, hidden apartment just around Tuskys with accessibility to all social facilities and at a really cheap price then worry no more, this apartment has everything you'd want and more just at the right price. All you have to do is Apply and it's yours.</p>
+                                                        <h6>Location</h6>
+                                                        <p id="location">Located at: Tumaini, Kajiado, Kenya</p>
+                                                        <h6>Monthly Price</h6>
+                                                        <p id="monthlyPrice">Ksh 8,000</p>
+                                                        <h6>Deposit Price</h6>
+                                                        <p id="depositPrice">Ksh 16,000</p>
+                                                        <h6>Total Price</h6>
+                                                        <p id="totalPrice">Ksh 18,000</p>
+                                                        <h6>Policies</h6>
+                                                        <p>Pets - Dogs and Cats(Maximum of 2)</p>
+                                                        <p>Special feature - Built in wardrobe</p>
+                                                        <h6>One-time costs</h6>
+                                                        <p>Trash Collection - Ksh 200</p>
+                                                        <h6>Amenities</h6>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Parking</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>WiFi (Personal)</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>24hr Security</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Clean Water Supply</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>On-Site staff</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Nearby mall/shops/grocery stores</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">Ksh 8000</h5>
+                                        <p class="d-block h5 mb-2">Apartment 17</p>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Tumaini, Kajiado, Kenya</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>65 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i></small>
+                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i></small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="noResults" class="col-12 text-center wow fadeInUp">
+                                <h1 class="mb-3">No Houses Meet The Searched Criteria</h1>
+                                <a class="mb-3" href="{% url 'core:propertylist' %}">OK</a>
+                            </div>
+                            <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+                                <a class="btn btn-primary py-3 px-5" href="{% url 'core:please' %}">Browse More Property</a>
+                            </div>
+                        </div>
+
+                        <!-- Request to Apply Popup -->
+                        <div id="requestPopup" class="popup">
+                            <div class="popup-content">
+                                <div class="fixed-header">
+                                    <span class="close-request">&times;</span>
+                                    <h2>Request to Apply</h2>
+                                </div>
+                                <div class="scrollable-content">
+                                    <form action="https://api.web3forms.com/submit" id="requestForm" method="post">
+                                        <div class="row g-3">
+                                            <input type="hidden" name="access_key" value="4e2ec23b-fe16-413b-bd65-79927f35e3f2">
+                                            <input type="hidden" name="from_name" value="niHome HOUSE REQUEST">
+                                            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                                            <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+                                            <div class="col-md-6">
+                                                <div class="col-12">
+                                                    <label for="name"><b>First & Last Name</b></label>
+                                                    <input class="form-control" type="text" name="Name" placeholder="Name"  style="width: 350px;" required>
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="Phone Number"><b>Phone Number</b></label>
+                                                    <input class="form-control" type="tel" placeholder="Phone Number" name="Phone Number" required>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <label for="email"><b>Your Email</b></label>
+                                                    <input class="form-control" type="email" name="email" placeholder="Email" style="width: 350px;" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="message"><b>Message</b></label>
+                                                <textarea class="form-control" cols="20" rows="3" name="message" placeholder="Leave a message here" required>I'm interested in your property and would like to move forward with the application.</textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <input type="checkbox" id="termsCheckbox" required>
+                                                <label for="termsCheckbox">I here by agree to the<a href="{% url 'core:terms&condition' %}"> Terms & Conditions</a> of niHome.</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="btn btn-primary w-100 py-3" type="submit">Send Request</button>
+                                            </div>
+                                        </div>
+                                    </form> 
+                                    <div class="info">
+                                        <h4>Will be sent to</h4>
+                                        <p>Leasing Agent: </p>
+                                        <p>Christopher Muiruri</p>
+                                        <p><a href="tel:+254792819977"><span>+254 792 819 977</span></a></p>
+                                        <p>By choosing to contact a property, you consent to receive calls or texts at the number you provided, which may involve use of automated means and prerecorded/artificial voices, from niHome group and the rental manager(s) you choose to contact about any inquiries you submit through our services.You also consent to payments of the services rendered during your application process. You don't need to consent as a condition of renting any property or buying any other goods or services. Message/data rates may apply. You also agree to niHome's Terms of Use and <a href="privacypolicy.html">Privacy Policy.</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Request to Visit Apply Popup -->
+                        <div id="visitPopup" class="popup">
+                            <div class="popup-content">
+                                <div class="fixed-header">
+                                    <span class="close-request">&times;</span>
+                                    <h2>Request to Visit</h2>
+                                </div>
+                                <div class="scrollable-content">
+                                    <form action="https://api.web3forms.com/submit" id="requestForm" method="post">
+                                        <div class="row g-3">
+                                            <input type="hidden" name="access_key" value="4e2ec23b-fe16-413b-bd65-79927f35e3f2">
+                                            <input type="hidden" name="from_name" value="niHome VISIT REQUEST">
+                                            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                                            <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+                                            <div class="col-md-6">
+                                                <div class="col-12">
+                                                    <label for="name"><b>First & Last Name</b></label>
+                                                    <input class="form-control" type="text" name="Name" placeholder="Name" style="width: 350px;" required>
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="Phone Number"><b>Phone Number</b></label>
+                                                    <input class="form-control" type="tel" placeholder="Phone Number" name="Phone Number" required>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <label for="email"><b>Your Email</b></label>
+                                                    <input class="form-control" type="email" name="email" placeholder="Email" style="width: 350px;" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="message"><b>Message</b></label>
+                                                <textarea class="form-control" cols="20" rows="3" name="message" placeholder="Leave a message here" required>I'm interested in your property and would like to come visit the house.
+(Please Specify the place you want to visit)</textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <input type="checkbox" id="termsCheckbox" required>
+                                                <label for="termsCheckbox">I here by agree to the<a href="{% url 'core:terms&condition' %}"> Terms & Conditions</a> of niHome.</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="btn btn-primary w-100 py-3" type="submit">Send Request</button>
+                                            </div>
+                                        </div>
+                                    </form> 
+                                    <div class="info">
+                                        <h4>Will be sent to</h4>
+                                        <p>Leasing Agent: </p>
+                                        <p>Christopher Muiruri</p>
+                                        <p><a href="tel:+254792819977"><span>+254 792 819 977</span></a></p>
+                                        <p>By choosing to contact a property and request to visit, you consent to receive calls or texts at the number you provided, which may involve use of automated means and prerecorded/artificial voices, from niHome group and the rental manager(s) you choose to contact about any inquiries you submit through our services. You don't need to consent as a condition of renting any property or buying any other goods or services. Visiting the house and any other houses, charges may apply. Message/data rates may apply. You also agree to niHome's <a href="{% url 'core:terms&condition' %}"> Terms of Use</a> and <a href="{% url 'core:privacypolicy' %}">Privacy Policy.</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>    
+            </div>
+        </div>
+
+
+        <!-- Call to Action Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded p-3">
+                    <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                        <div class="row g-5 align-items-center">
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                                <img class="img-fluid rounded w-100" src="{% static 'img/call-to-action.jpg' %}" alt="">
+                            </div>
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                                <div class="mb-4">
+                                    <h1 class="mb-3">Contact With Our Certified Agent</h1>
+                                    <p>Reach us <span class="text-primary">24/7</span> with any queries or concerns. You are one step away from your dream home</p>
+                                </div>
+                                <a href="tel:+254792819977" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
+                                <a href="mailto:chrismuiruri668@gmail.com" class="btn btn-dark py-3 px-4"><i class="fa fa-envelope me-2"></i>Send An Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call to Action End -->
+        
+
+{% endblock content %}

@@ -1,0 +1,99 @@
+
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+.add-property {
+    background-color: #000;
+    border: 1px solid #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+}
+
+.browse-properties {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.browse-properties h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-buttons button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filter-buttons button.active {
+    background-color: #555;
+}
+
+.property-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.property-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.property-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.property-info {
+    padding: 15px;
+}
+
+.property-type span {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 3px 5px;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.property-info h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.property-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.property-price {
+    font-size: 18px;
+    font-weight: bold;
+}

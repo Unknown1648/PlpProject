@@ -1,0 +1,44 @@
+{% extends 'partials/base3.html' %}
+
+{%load static%}
+{%block content%}
+
+
+<div class="container2">
+    <h1>News & Articles</h1>
+    <p>Enhance your space with popular styles, colors, & decor ideas</p>
+    <div class="blog-grid">
+        <div class="blog-post">
+            <img src="https://via.placeholder.com/600x400" alt="Interior Design">
+            <h2>Interior Design</h2>
+            <p>July 24, 2024</p>
+            <a href="#" class="btn btn-arrow">Read More</a>
+        </div>
+        <div class="blog-post">
+            <img src="https://via.placeholder.com/600x400" alt="Home Buying">
+            <h2>Home Buying</h2>
+            <p>July 24, 2024</p>
+            <a href="#" class="btn btn-arrow">Read More</a>
+        </div>
+        <div class="blog-post">
+            <img src="https://via.placeholder.com/600x400" alt="Legal Insights">
+            <h2>Legal Insights</h2>
+            <p>July 24, 2024</p>
+            <a href="#" class="btn btn-arrow">Read More</a>
+        </div>
+        <div class="blog-post">
+            <img src="https://via.placeholder.com/600x400" alt="Smart Homes">
+            <h2>Smart Homes</h2>
+            <p>July 24, 2024</p>
+            <a href="#" class="btn btn-arrow">Read More</a>
+        </div>
+        <!-- Additional blog posts go here, if needed -->
+    </div>
+    <div class="pagination">
+        <a href="{% url 'core:page2' %}">Next</a>
+    </div>
+</div>
+
+            
+
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login</title>
+      <link rel="stylesheet" href="{% static 'css/Style2.css' %}">
+      <link rel="icon" href="{% static 'img/icon-deal.png' %}" type="image/png">
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title">
+            Login Form
+         </div>
+         {% if messages %}
+            {% for message in  messages %}
+            <div class="alert alert-{{message.tags}}">
+                <strong >{{message}}</strong>
+            </div>
+            {% endfor %}
+        {% endif %}
+         <form method="POST">
+             {% csrf_token %}
+            <div class="field">
+               <input type="text" name="email" required>
+               <label>Email Address</label>
+            </div>
+            <div class="field">
+               <input type="password" name="password" required>
+               <label>Password</label>
+            </div>
+            <div class="content">
+               <div class="checkbox">
+                  <input type="checkbox" id="remember-me">
+                  <label for="remember-me">Remember me</label>
+               </div>
+               <div class="pass-link">
+                  <a href="{% url 'userauths:password_reset' %}">Forgot password?</a>
+               </div>
+            </div>
+            <div class="field">
+               <input type="submit" value="Login">
+            </div>
+            <div class="signup-link">
+               Not a member? <a href="{% url 'userauths:sign-up' %}">Signup now</a><br>
+               Want to go back? <a href="{% url 'core:index' %}">Home</a>
+            </div>
+         </form>
+      </div>
+   </body>
+</html>

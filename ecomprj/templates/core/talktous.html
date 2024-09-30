@@ -1,0 +1,47 @@
+{% extends 'partials/base2.html' %}
+
+{%load static%}
+{%block content%}
+
+
+            <!-- Blank Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="wow fadeInUp" data-wow-delay="0.5s">
+                    <p class="mb-4"><b>Reach Out To Us By Kindly Filling The Form Below To Send Us A Message.</b></p>
+                    <form action="https://api.web3forms.com/submit" method="post">
+                        <div class="row g-3">
+                            <input type="hidden" name="access_key" value="4e2ec23b-fe16-413b-bd65-79927f35e3f2">
+                            <input type="hidden" name="from_name" value="niHome user REQUEST">
+                            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                            <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+                            <div class="col-md-6">
+                                <div class="col-12">
+                                    <label for="name">Your Name</label>
+                                    <input class="form-control" type="text" name="First Name" placeholder="Name" style="width: 500px;" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="email">Your Email</label>
+                                    <input class="form-control" type="email" name="email" placeholder="Email" style="width: 500px;" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <input class="form-control" type="text" placeholder="Subject" name="Subject" style="width: 500px;" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" cols="20" rows="5" name="message" placeholder="Leave a message here" style="width: 500px;" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <input type="checkbox" id="termsCheckbox" required>
+                                <label for="termsCheckbox">I here by agree to the<a href="terms&condition.html"> Terms & Conditions</a> of niHome.</label>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit" style="width: 500px;" >Send Message</button>
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+            <!-- Blank End -->
+
+{% endblock content %}            

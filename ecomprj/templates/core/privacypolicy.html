@@ -1,0 +1,362 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>niHome-Privacy Policy</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicon -->
+  <link href="{% static 'img/favicon.ico' %}" rel="icon">
+  <link rel="icon" href="{% static 'img/icon-deal.png' %}" type="image/png">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <link rel="stylesheet" href="{% static 'css/assets/css/pp.css' %}">
+  
+</head>
+<body>
+
+	 <!-- Navbar Start -->
+	 <div class="container-fluid nav-bar bg-transparent">
+		<nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+			<a href="index.html" class="navbar-brand d-flex align-items-center text-center">
+				<div class="icon p-2 me-2">
+					<img class="img-fluid" src="{% static 'img/icon-deal.png' %}" alt="Icon" style="width: 30px; height: 30px;">
+				</div>
+				<h1 class="m-0 text-primary">niHome</h1>
+			</a>
+			<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<div class="navbar-nav ms-auto">
+					<a href="{% url 'core:index' %}" class="nav-item nav-link active">Home</a>
+					<a href="{% url 'core:about' %}" class="nav-item nav-link">About</a>
+					<div class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+						<div class="dropdown-menu rounded-0 m-0">
+							<!-- <a href="property-type.html" class="dropdown-item">Property Type</a> -->
+							<a href="{% url 'core:propertylist' %}" class="dropdown-item">Property List</a>
+						</div>
+					</div>                        
+					<div class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help</a>
+						<div class="dropdown-menu rounded-0 m-0">
+							<a href="{% url 'core:contact' %}" class="dropdown-item">Contact</a>
+							<a href="{% url 'core:faqs' %}" class="dropdown-item">FAQs</a>
+							<a href="{% url 'core:terms&condition' %}" class="dropdown-item">Terms & Condition</a>
+							<a href="{% url 'core:privacypolicy' %}" class="dropdown-item">Privacy Policy</a>
+						</div>
+					</div>
+				</div>
+				{%  if request.user.is_authenticated  %}
+                    <a href="{% url 'userauths:sign-out' %}" class="btn btn-primary px-3 d-none d-lg-flex">Sign Out</a>
+                {% else %}
+                    <a href="{% url 'userauths:sign-in' %}" class="btn btn-primary px-3 d-none d-lg-flex">Sign In</a>
+                {% endif %}
+			</div>
+		</nav>
+	</div>
+	<!-- Navbar End -->
+
+
+	<!-- Header Start -->
+	
+	<!-- Header End -->
+
+<br>
+<header class="cd-header flex flex-column flex-center">
+  <div class="text-component text-center">
+    <h1>Privacy Policy</h1>
+  </div>
+</header>
+
+<!--Body Start-->
+
+<div class="holder">
+		<p>At niHome, accessible from <a href="https://nihome.netlify.app">nihome.netlify.app</a>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by niHome and how we use it.<br>
+
+			<br>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.<br>
+			
+			<br>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in niHome. This policy is not applicable to any information collected offline or via channels other than this website.</p>
+	<section>
+		<h4>Consent</h4>
+		<p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+	</section>
+	<section>
+		<h5>What is Personal Data?</h5>
+		<p>When we use the term “personal data” in this Privacy Notice, we mean information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, to an individual or household. It does not include aggregated or de-identified information that is maintained in a form that is not capable of being associated with or reasonably linked to an individual.</p>
+		<h6>Our Collection and Use of Personal Data</h6>
+		<p>The personal data we collect, the way we collect it, and how we use it will depend on how you are interacting with us and the type of services you use.</p>
+	</section>
+	<section>
+		<h4>Information we collect</h4>
+		<p><i>Collection of Personal Data</i></p>
+		<p>When you use our services, websites, or apps, we collect personal data from you. We might also collect personal data about you from our business partners, payment processors, service providers, and other third parties who collect personal data on our behalf. This information might include:</p>
+		<ul>
+			<li><strong>Account Registration and Profile Information:</strong> If you register for an account through our services or complete a niHome profile, we collect account identifiers (including a username and password, as well as internal identifiers we assign to individual accounts to allow our systems to connect account information stored in different databases) and account history and records (including services you’ve used or interacted with, the date and type of account creation, account status, log in activity, transactions, the services we provide, messages received in connection with the services, and your activity on our websites and mobile applications). We use this information to create and administer your account, provide you with the relevant services and information, communicate with you regarding your account and your use of the services, for customer support purposes, and to send you communications by email, push notification, or by text message, in accordance with your preferences.</li>
+			<li><strong>Customer Service and Communication History: </strong>Including name, address, email, customer service requests, Account Identifiers, Account History and the contents of requests and correspondence with us (including recordings of phone calls, where permitted by law).</li>
+			<li><strong>Feedback Information:</strong>If you submit a review, feedback or other comments, we collect your contact information (such as first and last name, email address, and phone number) and any feedback and ratings relating to our services and products, including reviews you create of real estate pros.</li>
+			<li><strong>Inquiries and Communication: </strong>If you communicate with us or otherwise submit an inquiry or question (e.g., via webform), we collect your contact information (such as first and last name, email address, and phone number), account identifiers and history (described above), and any other personal data you choose to provide in the content of your message or communication.  We use this information to investigate and respond to your inquiries, to facilitate communication with us, to provide you with requested information, to enhance the services we offer, and to manage and grow our business.  If you represent a company or agency interested in partnering with us, we will also collect your professional and employment information in order to respond to your inquiries, communicate with you, to manage and grow our organization and to facilitate a business relationship.  Our websites and online services provide you the ability to connect with us through an online web form that collects contact information (such as first and last name, email address, phone number, company name, and title with company), area(s) of interest or concern, and a custom message.</li>
+			<li><strong>Location Data:</strong>Including general geographic location reflected in the Log Data we collect or more precise location when you choose to share it with us through your device or browser settings.</li>
+			<li><strong>Newsletters and Email Communication: </strong>Many of our websites and online services provide you an opportunity to sign up for our newsletters and email communications by providing your email address. We use your email address to communicate with you about our services and exciting developments at niHome Group, which may include marketing communications.</li>
+			<li><strong>Payment Information: </strong>We and our third-party service providers collect information relating to your transactions with us, including details regarding payments you’ve made through our sites or apps. We use third-party payment tools to process and store payment information like credit card numbers or bank account information. We don’t store this information ourselves.</li>
+		</ul>
+		<p><i>Other Collection of Personal Data</i>
+			In addition to the personal data collected above, we may also collect personal data as follows:
+		</p>
+		<ul>
+			<li><strong>Affiliates: </strong>We may receive information about you collected by other niHome Group companies, businesses, brands, and affiliated entities in our family of companies, so that information you provide to one brand may be used by us to better provide you services and communicate with you.</li>
+			<li><strong>Publicly Available Information:</strong>We may collect personal data from publicly available sources, such as information you publicly post or tag us in on social media sites or elsewhere online, and information contained in public records databases, such as government records or public review websites, to supplement the personal data identified above. We will use this information to conduct market research, verify your identity, prevent fraud, and improve our services.</li>
+			<li><strong>Business Partners: </strong>Our business partners, such as agent partners, lending partners, builders, property managers, and other real estate professionals collect personal data in connection with their services and often share some or all of this information with us. For example, we receive information about transactions you complete with partners with whom we’ve connected you through our services.</li>		
+		</ul>
+		<p><strong>Other Uses of Personal Data</strong>
+			In addition to the uses identified above, we use the personal data we collect to:
+		</p>
+		<ul>
+			<li>Facilitate our day-to-day business operations, such as helping you find your next home, or connect with a real estate agent, lender, landlord, or other real estate professional;</li>
+			<li>Create and maintain the services, develop new products and services, and improve existing products and services;</li>
+			<li>Aggregate information we receive from you and third parties to help understand individual needs, customize our services and offerings, and provide everyone better service;</li>
+			<li>Conduct research and analytics designed to understand our customer base and improve and grow our business, products, services, and customer experience;</li>
+			<li>Communicate with you to provide technical or administrative support;</li>
+			<li>Prevent, investigate, and defend against fraud or unlawful or criminal activity, access to, or use of personal data and our data system services;</li>
+			<li>Enforce, investigate, and resolve disputes and security issues and to enforce our Terms of Service and any other contracts;</li>
+			<li>Comply with legal obligations and other governmental demands;</li>
+			<li>Understand your preferences and interests to better serve you on your home-finding journey;</li>
+			<li>Personalize your individual experience, including providing educational resources and pointing you to homes you might be interested in or offerings of ours that might help you find your next home; and</li>
+			<li>For any other lawful, legitimate business purpose.</li>
+		</ul>
+		<p><strong>Our Disclosure of Personal Data</strong>
+			We may disclose your personal data in the instances described below:
+			<ul>
+				<li><strong>Within niHome Group:</strong>We are able to offer the products and services we make available because of the hard work of the entire niHome Group team. niHome Group entities disclose your personal data to other niHome Group entities for purposes and uses that are consistent with this Privacy Notice and applicable law. For example, one part of niHome might share your personal data with another in order to ensure that all the people helping in your home journey are working together for you.</li>
+				<li><strong>Business Partners:</strong>At your direction, we may share your personal data with our business partners in order to provide you with our products and services. For example, if you ask us to, we’ll share your contact information with a real estate agent or mortgage lender.</li>
+				<li><strong>Legal Obligations and Rights:</strong>We may disclose your personal data to third parties, such as legal advisors and law enforcement:
+					<ol>(i). In connection with the establishment, exercise, or defense of legal claims;</ol>
+					<ol>(ii). To comply with laws and regulations or to respond to lawful requests and legal process;</ol>
+					<ol>(iii). To protect our rights and property and the rights and property of our agents, customers, and others, including to enforce our agreements, policies, and terms of use;</ol>
+					<ol>(iv). To detect, suppress, or prevent fraud;</ol>
+					<ol>(v). To reduce credit risk and collect debts owed to us;</ol>
+					<ol>(vi). As otherwise required by applicable law.</ol>
+				</li>
+				<li><strong>Otherwise with Consent or At Your Direction: </strong>We may disclose your personal data to certain other third parties or publicly with your consent or direction. If you post a comment or review our website or a comment on our social media sites, the information you provide may be displayed publicly online for others to view.</li>
+				<li><strong></strong></li>
+			</ul>
+	</section>
+	<section>
+		<h4>How we use your information</h4>
+		<p>We use the information we collect in various ways, including to:
+			<ul>
+				<li>Provide, operate, and maintain our website</li>
+				<li>Improve, personalize, and expand our website</li>
+				<li>Understand and analyze how you use our website</li>
+				<li>Develop new products, services, features, and functionality</li>
+				<li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
+				<li>Send you emails</li>
+				<li>Find and prevent fraud</li>
+			</ul>
+		</p>
+	</section>
+	<section>
+		<h4>Log Files</h4>
+		<p>niHome follows a standard procedure of using log files. 
+			These files log visitors when they visit websites. All hosting companies do this and a part of hosting services’ analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks.<br> These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users’ movement on the website, and gathering demographic information.</p>
+	</section>
+	<section>
+		<h4>Cookies</h4>
+		<p>Like any other website, niHome uses ‘cookies’. These cookies are used to store information including visitors’ preferences, and the pages on the website that the visitor accessed or visited.<br> The information is used to optimize the users’ experience by customizing our web page content based on visitors’ browser type and/or other information.</p>
+	</section>
+	<section>
+		<h4>Third-Party Websites</h4>
+		<p>Our websites and online services may include links to or redirect you to third-party websites, plug-ins and applications, including social media services where you may connect with us. Third-party websites may also reference or link to our websites and online services. Except where we post, link to, or expressly adopt or refer to this Privacy Notice, this Privacy Notice does not apply to, and we are not responsible for, any personal data practices of third-party websites and online services or the practices of other third parties. To learn about the personal data practices of these third parties, please visit their respective privacy notices or policies.</p>
+	</section>
+	<section>
+		<h3>Affiliate Links</h3>
+		<p>niHome may contain affiliate links, meaning, we recommend products and services we have used or know well and may receive a commission if you purchase them at no additional cost to you.</p>
+	</section>
+	<section>
+		<h4>Third Party Privacy Policies</h4>
+		<p>niHome’s Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
+
+			You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers’ respective websites.</p>
+	</section>
+	<section>
+		<h4>GDPR Data Protection Rights</h4>
+		<p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
+			<ul>
+				<li>The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</li>
+				
+				<li>The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</li>
+				
+				<li>The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</li>
+				
+				<li>The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
+				
+				<li>The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</li>
+				
+				<li>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+			</ul>
+			If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
+		</p>
+		</section>
+	<section>
+		<h4>Children’s Information</h4>
+		<p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
+
+			niHome does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+	</section>
+	<section>
+		<h4>Changes to this Privacy Policy</h4>
+		<p>We will update this Privacy Notice from time to time. When we make changes to this Privacy Notice, we will change the “Last Updated” date at the beginning of this Privacy Notice. If we make material changes to this Privacy Notice, we will notify you. All changes shall be effective from the date of publication unless otherwise provided in the notification.</p>
+	</section>
+	<section>
+		<h4>Contact Us</h4>
+		<p>If you have any questions about this Privacy Policy, you can <a href="{% url 'core:contact' %}">contact us</a></p>
+		<p>You can also email us at <a href="mailto:niHome2024@outlook.com">niHome2024@outlook.com</a>.</p>
+	</section>
+	<section>
+		<h4>Submitting Authorized Agent Requests</h4>
+		<p>In certain circumstances, you are permitted by law to use an authorized agent to submit requests on your behalf through the designated methods set forth above where we can verify the authorized agent’s authority to act on your behalf. In order to verify the authorized agent’s authority, we generally require evidence of either: (i) a valid power of attorney; or (ii) a signed letter containing your name and contact information, the name and contact information of the authorized agent, and a statement of authorization for the request. Depending on the evidence provided and your state of residence, we may still need to separately reach out to you to confirm the authorized agent has permission to act on your behalf and to verify your identity in connection with the request. </p>
+	</section>
+	<section>
+		<h4>Minors</h4>
+		<p>We do not sell the personal data of consumers we know to be less than 18 years of age, unless we receive affirmative authorization (the “Right to Opt In”) from either the minor who is between 13 and 17 years of age, or the parent or guardian of a minor less than 13 years of age.
+
+			If you are under the age of 18 and you want to remove your name or comments from our website or publicly displayed content, please contact us directly at <a href="mailto:niHome2024@outlook.com">niHome2024@outlook.com</a>. We may not be able to modify or delete your information in all circumstances.
+			
+			If you wish to submit a privacy request on behalf of your minor child in accordance with applicable jurisdictional laws, you must provide sufficient information to allow us to reasonably verify your child is the person about whom we collected personal information and you are authorized to submit the request on your child’s behalf (i.e., you are the child’s legal guardian or authorized representative).</p>
+	</section>
+</div>
+
+<!--Body End-->
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+	<div class="container py-5">
+		<div class="row g-5">
+			<div class="col-lg-3 col-md-6">
+				<h5 class="text-white mb-4">Get In Touch</h5>
+				<h6><i class="fa fa-map-marker-alt me-3"></i>Ongata Rongai, Kajiado, Kenya</h6>
+				<h6><i class="fa fa-phone-alt me-3"></i>+254 792 819 977</h6>
+				<h6><i class="fa fa-envelope me-3"></i>niHome2024@outlook.com</h6>
+				<div class="d-flex pt-2">
+					<a class="btn btn-outline-light btn-social" href="https://x.com/niHome2024"><i class="fab fa-twitter"></i></a>
+					<a class="btn btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=61564870045368&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+					<a class="btn btn-outline-light btn-social" href="https://www.instagram.com/nihome2024/?next=%2F&hl=en"><i class="fab fa-instagram"></i></a>
+					<a class="btn btn-outline-light btn-social" href="https://www.tiktok.com/@nihome80?lang=en"><i class="fab fa-tiktok"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<h5 class="text-white mb-4">Quick Links</h5>
+				<a class="btn btn-link text-white-50" href="{% url 'core:about' %}">About Us</a>
+				<a class="btn btn-link text-white-50" href="{% url 'core:contact' %}">Contact Us</a>
+				<a class="btn btn-link text-white-50" href="">Our Services</a>
+				<a class="btn btn-link text-white-50" href="{% url 'core:privacypolicy' %}">Privacy Policy</a>
+				<a class="btn btn-link text-white-50" href="{% url 'core:terms&condition' %}">Terms & Condition</a>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<h5 class="text-white mb-4">Photo Gallery</h5>
+				<div class="row g-2 pt-2">
+					<div class="col-4">
+						<img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-4.jpg' %}" alt="">
+					</div>
+					<div class="col-4">
+						<img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-1.jpg' %}" alt="">
+					</div>
+					<div class="col-4">
+						<img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-1.jpg' %}" alt="">
+					</div>
+					<div class="col-4">
+						<img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-5.jpg' %}" alt="">
+					</div>
+					<div class="col-4">
+						<img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-3.jpg' %}" alt="">
+					</div>
+					<div class="col-4">
+						<img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-6.jpg' %}" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<h5 class="text-white mb-4">Newsletter</h5>
+				<p><h6>SignUp to our newsletter to receive email on updates and new property listings.</h6></p>
+				<div class="position-relative mx-auto" style="max-width: 400px;" >
+					<script>
+						function saveEmail() {
+							var email = document.getElementById('email').value;
+							localStorage.setItem('userEmail', email);
+						}
+					</script>
+					<form action="{% url 'userauths:sign-up' %}" method="get" onsubmit="saveEmail()">
+						<input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="email" id="email" name="email" placeholder="Your email">
+						<button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="copyright">
+			<div class="row">
+				<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+					&copy; <a class="border-bottom" href="index.html">niHome</a>, All Right Reserved. 
+					
+					<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+					<h6>Designed By <a class="border-bottom" href="https://htmlcodex.com/">HTML Codex</a></h6>
+				</div>
+				<div class="col-md-6 text-center text-md-end">
+					<div class="footer-menu">
+						<a href="{% url 'core:index' %}">Home</a>
+						<a href="{% url 'core:faqs' %}">FAQs</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+<script src="{% static 'assets/js/util.js' %}"></script> <!-- util functions included in the CodyHouse framework -->
+<script src="{% static 'assets/js/main.js' %}"></script> 
+</body>
+</html>
