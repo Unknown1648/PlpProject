@@ -32,6 +32,10 @@ urlpatterns = [
      path('Delete_account/', views.delete_account, name='delete_account'),
      path('view_profile/', views.view_profile, name='view_profile'),
      path('Edit_profile/', views.edit_profile, name='edit_profile'),
+     
+     path('add_to_cart/', views.add_to_cart, name='add_to_cart'),
+    path('cart/', views.cart_view, name='cart'),
+    path('remove_from_cart/<str:item_id>/', views.remove_from_cart, name='remove_from_cart'),
 ]
 
 

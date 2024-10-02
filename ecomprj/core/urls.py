@@ -21,5 +21,7 @@ urlpatterns = [
      path('Map/', map_view, name='map'),
      path('Blog2/', page2_view, name='page2'),
      path('Tasks/', tasks_view, name='tasks'),
+     path('Cart/', cart_view, name='cart'),
+     path('Advertise/', advertise_view, name='advertise'),
      
 ]

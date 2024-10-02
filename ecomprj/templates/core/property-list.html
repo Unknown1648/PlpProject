@@ -3,36 +3,6 @@
 {%load static%}
 {%block content%}
 
-{% comment %} 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>niHome</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="{% static 'img/favicon.ico' %}" rel="icon">
-    <link rel="icon" href="{% static 'img/icon-deal.png' %}" type="image/png">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="{% static 'lib/lib/animate/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static 'lib/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet"> {% endcomment %}
-
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/bootstrap.min3.css' %}" rel="stylesheet">
 
@@ -43,63 +13,7 @@
 
 <body>
     <div class="container-xxxl bg-white p-0">
-        {% comment %} <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
-
-
-        <!-- Navbar Start -->
-        <div class="container-fluid nav-bar bg-transparent">
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
-                <a href="{% url 'core:dashboard' %}" class="navbar-brand d-flex align-items-center text-center">
-                    <div class="icon p-2 me-2">
-                        <img class="img-fluid" src="{% static 'img/icon-deal.png' %}" alt="Icon" style="width: 30px; height: 30px;">
-                    </div>
-                    <h1 class="m-0 text-primary">niHome</h1>
-                </a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                        <a href="{% url 'core:dashboard' %}" class="nav-item nav-link active">Home</a>
-                        <a href="#" class="nav-link">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span class="d-none d-lg-inline-flex"></span>
-                        </a>                        
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="{% url 'core:faqs' %}" class="dropdown-item">FAQs</a>
-                                <a href="{% url 'core:terms&condition' %}" class="dropdown-item">Terms & Condition</a>
-                                <a href="{% url 'core:privacypolicy' %}" class="dropdown-item">Privacy Policy</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="{% url 'userauths:sign-out' %}" class="btn btn-primary px-3 d-none d-lg-flex">Sign Out</a>
-                </div>
-            </nav>
-        </div>
-        <!-- Navbar End -->
-
-
-        <!-- Header Start -->
-         <br>
-         <br>
-        <div class="container-fluid header bg-white p-0">
-            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
-                <div class="col-md-6 p-5 mt-lg-5">
-                    <h1 class="display-5 animated fadeIn mb-4">Property List</h1> 
-                </div>
-            </div>
-        </div>
-        <!-- Header End --> {% endcomment %}
-
-
+        
         <!-- Search Start -->
         <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
             <div class="container">
@@ -177,10 +91,13 @@
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                                 <div class="property-item rounded overflow-hidden" data-type="Bedsitter" data-location="Tuskys" data-status="Rented" data-price="12000">
                                     <div class="position-relative overflow-hidden">
-                                        <a href="" ><img class="triggerImage img-fluid" data-popup="popup25" src="{% static 'img/Houses/Bedsitters/unknown/Apartment.jpg' %}" alt="Property Image"></a>
+                                        <a href=""><img class="triggerImage img-fluid" data-popup="popup25" src="{% static 'img/Houses/Bedsitters/unknown/Apartment.jpg' %}" alt="Property Image"></a>
                                         <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Rented</div>
                                         <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3" id="Bedsitter">Bedsitter</div>
-
+                                        <button class="btn btn-success position-absolute end-0 bottom-0 m-4"onclick="addToCart('Apartment 20', 12000, 'Bedsitter', 'Tuskys, Kajiado, Kenya')">
+                                            <i class="fa fa-shopping-cart"></i> Add to Cart
+                                        </button>
+                                        
                                             <!-- Main Modal -->
                                         <div id="popup25" class="modal">
                                             <div class="modal-content">
@@ -251,7 +168,7 @@
                                     </div>
                                     <div class="p-4 pb-0">
                                         <h5 class="text-primary mb-3">Ksh 12000</h5>
-                                        <p class="d-block h5 mb-2">Apartment 20</p>
+                                        <p id="name" class="d-block h5 mb-2">Apartment 20</p>
                                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Tuskys, Kajiado, Kenya</p>
                                     </div>
                                     <div class="d-flex border-top">
@@ -1750,7 +1667,34 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
+                            <script>
+                                function addToCart(name, price, type, location) {
+                                    const csrfToken = '{{ csrf_token }}';  // Ensure CSRF token is included
+                                    const addToCartUrl = "{% url 'userauths:add_to_cart' %}";  // Use the URL name
+                                    fetch(addToCartUrl, {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                            'X-CSRFToken': csrfToken
+                                        },
+                                        body: JSON.stringify({ 'name': name, 'price': price, 'type': type, 'location': location })
+                                    })
+                                    .then(response => {
+                                        if (response.ok) {
+                                            alert('Property added to cart!');
+                                        } else {
+                                            alert('Failed to add property to cart.');
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        alert('An error occurred while adding the property to the cart.');
+                                    });
+                                }
+                            </script>
+                                
+                                
 
                             <div id="noResults" class="col-12 text-center wow fadeInUp">
                                 <h1 class="mb-3">No Houses Meet The Searched Criteria</h1>
@@ -1795,7 +1739,7 @@
                                             </div>
                                             <div class="col-12">
                                                 <input type="checkbox" id="termsCheckbox" required>
-                                                <label for="termsCheckbox">I here by agree to the<a href="terms&condition.html"> Terms & Conditions</a> of niHome.</label>
+                                                <label for="termsCheckbox">I here by agree to the<a href="{% url 'core:terms&condition' %}"> Terms & Conditions</a> of niHome.</label>
                                             </div>
                                             <div class="col-12">
                                                 <button class="btn btn-primary w-100 py-3" type="submit">Send Request</button>
@@ -1807,7 +1751,7 @@
                                         <p>Leasing Agent: </p>
                                         <p>Christopher Muiruri</p>
                                         <p><a href="tel:+254792819977"><span>+254 792 819 977</span></a></p>
-                                        <p>By choosing to contact a property, you consent to receive calls or texts at the number you provided, which may involve use of automated means and prerecorded/artificial voices, from niHome group and the rental manager(s) you choose to contact about any inquiries you submit through our services.You also consent to payments of the services rendered during your application process. You don't need to consent as a condition of renting any property or buying any other goods or services. Message/data rates may apply. You also agree to niHome's Terms of Use and <a href="privacypolicy.html">Privacy Policy.</a></p>
+                                        <p>By choosing to contact a property, you consent to receive calls or texts at the number you provided, which may involve use of automated means and prerecorded/artificial voices, from niHome group and the rental manager(s) you choose to contact about any inquiries you submit through our services.You also consent to payments of the services rendered during your application process. You don't need to consent as a condition of renting any property or buying any other goods or services. Message/data rates may apply. You also agree to niHome's Terms of Use and <a href="{% url 'core:privacypolicy' %}">Privacy Policy.</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -1849,7 +1793,7 @@
                                             </div>
                                             <div class="col-12">
                                                 <input type="checkbox" id="termsCheckbox" required>
-                                                <label for="termsCheckbox">I here by agree to the<a href="terms&condition.html"> Terms & Conditions</a> of niHome.</label>
+                                                <label for="termsCheckbox">I here by agree to the<a href="{% url 'core:terms&condition' %}"> Terms & Conditions</a> of niHome.</label>
                                             </div>
                                             <div class="col-12">
                                                 <button class="btn btn-primary w-100 py-3" type="submit">Send Request</button>
@@ -1861,7 +1805,7 @@
                                         <p>Leasing Agent: </p>
                                         <p>Christopher Muiruri</p>
                                         <p><a href="tel:+254792819977"><span>+254 792 819 977</span></a></p>
-                                        <p>By choosing to contact a property and request to visit, you consent to receive calls or texts at the number you provided, which may involve use of automated means and prerecorded/artificial voices, from niHome group and the rental manager(s) you choose to contact about any inquiries you submit through our services. You don't need to consent as a condition of renting any property or buying any other goods or services. Visiting the house and any other houses, charges may apply. Message/data rates may apply. You also agree to niHome's Terms of Use and <a href="privacypolicy.html">Privacy Policy.</a></p>
+                                        <p>By choosing to contact a property and request to visit, you consent to receive calls or texts at the number you provided, which may involve use of automated means and prerecorded/artificial voices, from niHome group and the rental manager(s) you choose to contact about any inquiries you submit through our services. You don't need to consent as a condition of renting any property or buying any other goods or services. Visiting the house and any other houses, charges may apply. Message/data rates may apply. You also agree to niHome's Terms of Use and <ahref="{% url 'core:privacypolicy' %}">Privacy Policy.</a></p>
                                     </div>
                                 </div>
                             </div>

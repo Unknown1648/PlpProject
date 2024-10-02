@@ -7,6 +7,10 @@ from django.conf import settings
 from .models import Profile
 from userauths.models import User
 
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
 # User = settings.AUTH_USER_MODEL
 
 
@@ -127,6 +131,40 @@ def edit_profile(request):
     return render(request, 'userauths/manageacc.html', {'user': user, 'profile': profile})
 
 def dashboard_view(request):
-    # Fetch the user's profile
     profile = Profile.objects.get(user=request.user)
     return render(request, 'partials/base2.html', {'profile': profile})
+
+
+
+cart = []
+
+@csrf_exempt
+def add_to_cart(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        cart = request.session.get('userauths:cart', [])
+        cart.append({
+            'name': data['name'],
+            'type': data.get('type', 'Unknown'),  # Ensure you pass 'type'
+            'location': data.get('location', 'Unknown'),  # Ensure you pass 'location'
+            'price': data['price']
+        })
+        request.session['cart'] = cart  # Store the updated cart back in the session
+        print("Current Cart after Adding:", request.session['cart'])  # Debugging line
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'failed'}, status=400)
+
+def cart_view(request):
+    # Retrieve the cart from the session
+    cart = request.session.get('cart', [])
+    print("Cart Retrieved:", cart)  # Debugging line
+    total_price = sum(item['price'] for item in cart) if cart else 0
+    
+    # Render the template with the cart data
+    return render(request, 'userauths:cart.html', {'cart': cart, 'total_price': total_price})
+
+
+def remove_from_cart(request, item_id):
+    global cart
+    cart = [item for item in cart if item['name'] != item_id]  # Filter out the item
+    return redirect("userauths:cart")

@@ -1,0 +1,41 @@
+{% extends 'partials/base2.html' %}
+
+{%load static%}
+{%block content%}
+
+            <!-- Blank Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="container">
+                    <h2>Your Cart</h2>
+                    {% if cart %}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Apartment Name</th>
+                                    <th>Type</th>
+                                    <th>Location</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart %}
+                                <tr>
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.type }}</td>
+                                    <td>{{ item.location }}</td>
+                                    <td>Ksh {{ item.price }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <h4>Total: Ksh {{ total_price }}</h4>
+                    {% else %}
+                        <p>Your cart is empty.</p>
+                    {% endif %}
+                    <p>Cart contents: {{ cart|safe }}</p>  <!-- Debugging output -->
+                </div>
+            </div>
+            <!-- Blank End -->
+            
+
+{% endblock content %}

@@ -1,0 +1,482 @@
+{% extends 'partials/base2.html' %}
+
+{%load static%}
+{%block content%}
+
+
+            <!-- Blank Start -->
+            <div class="container-fluid pt-4 px-4">
+                
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f4f4f4;
+                }
+            
+                .logo {
+                    font-size: 2em;
+                    font-weight: bold;
+                }
+                .navigation {
+                    margin-top: 10px;
+                }
+                .navigation a {
+                    color: #fff;
+                    text-decoration: none;
+                    margin: 0 15px;
+                    font-size: 1.2em;
+                }
+                .container2 {
+                    max-width: 1200px;
+                    margin: 20px auto;
+                    padding: 20px;
+                    background-color: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+                .container2 h1 {
+                    margin-bottom: 20px;
+                }
+                .container2 p {
+                    margin-bottom: 20px;
+                    color: #555;
+                }
+                .blog-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
+                .blog-post {
+                    background-color: #fff;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    padding: 15px;
+                }
+                .blog-post img {
+                    width: 100%;
+                    height: auto;
+                    border-bottom: 1px solid #ddd;
+                }
+                .blog-post h2 {
+                    margin: 15px 0 10px;
+                }
+                .blog-post p {
+                    color: #555;
+                }
+                .btn {
+                    background-color: #06c760;
+                    color: #fff;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-size: 0.9em;
+                    display: inline-block;
+                    margin-top: 10px;
+                }
+                .btn:hover {
+                    background-color: #06c760;
+                }
+                .btn-arrow::after {
+                    content: ' →';
+                }
+                .pagination {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                .pagination a {
+                    color: #06c760;
+                    text-decoration: none;
+                    margin: 0 10px;
+                    font-size: 1.2em;
+                }
+            </style>
+        </head>
+        <body>
+            
+
+            
+                <div class="container2">
+                    <h1>Partner with niHome to Grow Your Business</h1>
+                    <p>Reach millions of buyers, sellers and renters on the largest real estate network on the web.</p>
+                    <h2>Select your industry to get started</h2>
+                    <div class="blog-grid">
+                        <div class="blog-post">
+                            <img src="https://via.placeholder.com/600x400" alt="Interior Design">
+                            <h2>I'm an agent or broker</h2>
+                            <p>July 24, 2024</p>
+                            <a href="#" class="btn btn-arrow" id="readMoreBtn1">Read More</a>
+                        </div>
+
+
+                       <!-- Modal for Interior Design -->
+                        <div id="myModal1" class="modal">
+                            <div class="modal-content">
+                                <span class="close" id="close1">&times;</span>
+                                <div class="modal-left">
+                                    <img src="https://via.placeholder.com/600x400" alt="Popup Background" class="popup-background" id="modalImage1">
+                                    <div class="form-overlay">
+                                        <h2 id="modalTitle1">Interior Design</h2>
+                                        <form id="contactForm1">
+                                            <label for="name">Name:</label>
+                                            <input type="text" id="name1" name="name" required>
+                                            
+                                            <label for="email">Email:</label>
+                                            <input type="email" id="email1" name="email" required>
+                                            
+                                            <label for="message">Message:</label>
+                                            <textarea id="message1" name="message" required></textarea>
+                                            
+                                            <button type="submit">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+<!-- CSS for Modal -->
+<style>
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 10000; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgba(0, 0, 0, 0.6); 
+    }
+    
+    .modal-content {
+        display: flex;
+        background-color: transparent;
+        margin: 10% auto; 
+        width: 80%; 
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .modal-left {
+        position: relative; 
+        flex: 1;
+    }
+    
+    .popup-background {
+        width: 100%;
+        height: auto; 
+    }
+    
+    .form-overlay {
+        height: 90%;
+        position: absolute;
+        top: 20px; 
+        left: 500px; 
+        right: 10px; 
+        background: rgba(255, 255, 255, 0.8); 
+        padding: 20px;
+        border-radius: 8px;
+    }
+    .form-overlay2 {
+        height: 90%;
+        position: absolute;
+        top: 20px; 
+        left: 50px; 
+        right: 50px; 
+        background: rgba(255, 255, 255, 0.8); 
+        padding: 20px;
+        border-radius: 8px;
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        margin: 10px;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        font-size: 12px; /* Adjust this value for desired text size */
+    }
+    
+    label {
+        margin-bottom: 0.5em; /* Space between label and input */
+    }
+    
+    input, textarea {
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    button {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #218838;
+    }
+    </style>
+
+
+
+                        <div class="blog-post">
+                            <img src="https://via.placeholder.com/600x400" alt="Home Buying">
+                            <h2>I'm a Property Manager / Caretaker</h2>
+                            <p>July 24, 2024</p>
+                            <a href="#" class="btn btn-arrow" id="readMoreBtn2">Read More</a>
+                        </div>
+
+                        <!-- Modal for Web Development -->
+                        <div id="myModal2" class="modal">
+                            <div class="modal-content">
+                                <span class="close" id="close2">&times;</span>
+                                <div class="modal-left">
+                                    <img src="https://via.placeholder.com/600x400" alt="Popup Background" class="popup-background" id="modalImage2">
+                                    <div class="form-overlay">
+                                        <h2 id="modalTitle2">Start connecting now</h2>
+                                        <h5>Submit your information below. </h5>
+                                        <form id="contactForm2">
+                                            <div class="form-group">
+                                                <label for="properties"><strong>I manage:</strong></label>
+                                                <select id="properties" name="Properties" style="width: 450px" required>
+                                                    <option value="" disabled selected>Properties with:</option>
+                                                    <option value="10">1-10 units</option>
+                                                    <option value="50">11-50 units</option>
+                                                </select>
+                                            </div>
+                                        
+                                            <div class="form-group row">
+                                                <div class="col">
+                                                    <label for="name2"><strong>Full Name:</strong></label>
+                                                    <input type="text" id="name2" name="name" required>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="company"><strong>Property Management Company:</strong></label>
+                                                    <input type="text" id="company" name="company" required>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="form-group">
+                                                <label for="location"><strong>Company Headquarters:</strong></label>
+                                                <input type="text" id="location" name="location" style="width: 450px" required>
+                                            </div>
+                                        
+                                            <div class="form-group row">
+                                                <div class="col">
+                                                    <label for="email2"><strong>Email:</strong></label>
+                                                    <input type="email" id="email2" name="email" required>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="Tel"><strong>Phone Number:</strong></label>
+                                                    <input type="tel" id="Tel" name="tel" required>
+                                                </div>
+                                            </div>
+                                        
+                                            <button type="submit">Submit</button>
+                                        </form>
+                                        <div>
+                                            <p>We respect your privacy. See our <a href="{% url 'core:privacypolicy' %}"> privacy policy</a>.</p>
+                                            <p>By pressing Submit, you agree that niHome Real Estate may contact you via phone/text about your inquiry, which may involve the use of automated means. You are not required to consent as a condition of purchasing any goods or services.</p>
+                                        </div>
+                                        <style>
+                                            .form-group {
+                                                margin-bottom: 1.5em; /* Space between fields */
+                                            }
+                                            
+                                            .row {
+                                                display: flex; /* Create a flex container */
+                                                justify-content: space-between; /* Space out columns */
+                                            }
+                                            
+                                            .col {
+                                                flex: 1; /* Equal width for columns */
+                                                margin-right: 1em; /* Space between columns */
+                                            }
+                                            
+                                            .col:last-child {
+                                                margin-right: 0; /* Remove margin from last column */
+                                            }
+                                        </style>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="blog-post">
+                            <img src="https://via.placeholder.com/600x400" alt="Legal Insights">
+                            <h2>I'm a Landlord</h2>
+                            <p>July 24, 2024</p>
+                            <a href="#" class="btn btn-arrow" id="readMoreBtn3">Read More</a>
+                        </div>
+
+                        <!-- Modal for Web Development -->
+                        <div id="myModal3" class="modal">
+                            <div class="modal-content">
+                                <span class="close" id="close3">&times;</span>
+                                <div class="modal-left">
+                                    <img src="https://via.placeholder.com/600x400" alt="Popup Background" class="popup-background" id="modalImage3">
+                                    <div class="form-overlay2">
+                                        <div class="container-xxl py-5">
+                                            <div class="container">
+                                                <div class="row g-5 align-items-center">
+                                                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                                                        <h1 class="mb-4">#2 Our Vission</h1>
+                                                        <p class="mb-4"><span class="text-primary">niHome</span> aims to be Kenya’s <b>#1</b> 
+                                                            gate to real estate. It is the right place for real estate investors who look for trust, 
+                                                            stability, security and high returns. Through exemplary delivery time and service, 
+                                                            transparency, and mutual trust, we aim to build long-term partnerships with our clients.
+                                                        </p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Exemplary Delivery</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Transparency</p>
+                                                        <p><i class="fa fa-check text-primary me-3"></i>Mutual Trust</p>
+                                                    </div>
+                                                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                                                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                                                            <img class="img-fluid w-100" src="{% static 'img/about.jpg' %}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="blog-post">
+                            <img src="https://via.placeholder.com/600x400" alt="Smart Homes">
+                            <h2>I'm a lender or loan officer</h2>
+                            <p>July 24, 2024</p>
+                            <a href="#" class="btn btn-arrow" id="readMoreBtn4">Read More</a>
+                        </div>
+
+                        <!-- Modal for Web Development -->
+                        <div id="myModal4" class="modal">
+                            <div class="modal-content">
+                                <span class="close" id="close4">&times;</span>
+                                <div class="modal-left">
+                                    <img src="https://via.placeholder.com/600x400" alt="Popup Background" class="popup-background" id="modalImage4">
+                                    <div class="form-overlay">
+                                        <h2 id="modalTitle4">Web Development</h2>
+                                        <form id="contactForm4">
+                                            <label for="name">Name:</label>
+                                            <input type="text" id="name4" name="name" required>
+                                            
+                                            <label for="email">Email:</label>
+                                            <input type="email" id="email4" name="email" required>
+                                            
+                                            <label for="message">Message:</label>
+                                            <textarea id="message4" name="message" required></textarea>
+                                            
+                                            <button type="submit">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional blog posts go here, if needed -->
+                    </div>
+                    {% comment %} <div class="pagination">
+                        <a href="{% url 'core:page2' %}">Next</a>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+            <!-- Content End -->
+       
+<!-- JavaScript for Popup -->
+<script>
+    document.getElementById('readMoreBtn1').onclick = function(event) {
+        event.preventDefault();  // Prevent default anchor click behavior
+        document.getElementById('myModal1').style.display = "block";
+    }
+    
+    document.getElementById('readMoreBtn2').onclick = function(event) {
+        event.preventDefault();  // Prevent default anchor click behavior
+        document.getElementById('myModal2').style.display = "block";
+    }
+
+    document.getElementById('readMoreBtn3').onclick = function(event) {
+        event.preventDefault();  // Prevent default anchor click behavior
+        document.getElementById('myModal3').style.display = "block";
+    }
+    
+    document.getElementById('readMoreBtn4').onclick = function(event) {
+        event.preventDefault();  // Prevent default anchor click behavior
+        document.getElementById('myModal4').style.display = "block";
+    }
+    
+    document.getElementById('close1').onclick = function() {
+        document.getElementById('myModal1').style.display = "none";
+    }
+    
+    document.getElementById('close2').onclick = function() {
+        document.getElementById('myModal2').style.display = "none";
+    }
+    
+    document.getElementById('close3').onclick = function() {
+        document.getElementById('myModal3').style.display = "none";
+    }
+    
+    document.getElementById('close4').onclick = function() {
+        document.getElementById('myModal4').style.display = "none";
+    }
+
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('myModal1')) {
+            document.getElementById('myModal1').style.display = "none";
+        }
+        if (event.target == document.getElementById('myModal2')) {
+            document.getElementById('myModal2').style.display = "none";
+        }
+        if (event.target == document.getElementById('myModal3')) {
+            document.getElementById('myModal3').style.display = "none";
+        }
+        if (event.target == document.getElementById('myModal4')) {
+            document.getElementById('myModal4').style.display = "none";
+        }
+    }
+    </script>
+
+            <!-- Back to Top -->
+            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        </div>
+        <!-- other Template Javascript -->
+        <script src="{% static 'js/main2.js' %}"></script>
+        </body>
+
+        </html>
+    </div>
+    <!-- Blank End -->    
+            
+
+{% endblock content %}
+

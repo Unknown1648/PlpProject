@@ -35,3 +35,7 @@ def dashboard_view(request):
     return render(request, 'core/dashboard.html')
 def tasks_view(request):
     return render(request, 'core/tasks.html')
+def cart_view(request):
+    return render(request, 'core/cart.html')
+def advertise_view(request):
+    return render(request, 'core/advertise.html')

@@ -27,7 +27,7 @@
 
     <!-- Libraries Stylesheet -->
     <link href="{% static 'lib/lib//owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-    <link href="{% static 'lib/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -92,9 +92,9 @@
                         </div>
                     </div>
                     <a href="{% url 'core:talktous' %}" class="nav-item nav-link"><i class="fa fa-paper-plane"></i>Talk To Us</a>
+                    <a href="{% url 'core:advertise' %}" class="nav-item nav-link"><i class="fa fa-bullhorn me-2"></i>Advertise</a>
                     <a href="{% url 'core:page' %}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Blogs</a>
                     <a href="{% url 'core:map' %}" class="nav-item nav-link"><i class="fa fa-map me-2"></i>Maps</a>
-                    <!-- <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> -->
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-cog me-2"></i>Account</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -183,7 +183,7 @@
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
                         </div>
                     </div>
-                    <a href="#" class="nav-link">
+                    <a href="{% url 'core:cart' %}" class="nav-link">
                         <i class="fa fa-shopping-cart"></i>
                         <span class="d-none d-lg-inline-flex"></span>
                     </a>
